@@ -1,25 +1,77 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="robots" content="noindex,nofollow,noarchive" /> 
+  <link rel="icon" href="images/favicon.ico" />
   <title> Jessica Gorman </title>
   <style>
     body {
       font-family: sans-serif;
       text-align: center;
     }
+    .normal {
+      background-color: white;
+      font-family: sans-serif;
+      color: black;
+    }
+    .weird {
+      background-color: purple;
+      font-family: Comic Sans MS;
+      color: orange;
+    }
     h1 {
-      color: #333;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .weird h1 {
+      font-size: 5rem;
+      text-shadow: 2px 2px 4px black;
     }
     p {
-      color: #666;
       margin-top: 20px;
+    }
+    img {
+      display: block;
+      margin: 20px auto;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
     }
   </style>
 </head>
-<body>
+<body class="normal">
 
   <h1>Jessica Gorman</h1> 
   <p>I build amazing things with code!</p> 
+
+  <img src="images/swanson.gif" alt="ron swanson gif"> 
+
+  <button onclick="toggleWeird()">Make Things Weird!</button>
+
+  <script>
+    let isWeird = false;
+
+    function toggleWeird() {
+      const body = document.body;
+      const button = document.querySelector("button");
+      
+      isWeird = !isWeird;
+
+      if (isWeird) {
+        body.classList.remove("normal");
+        body.classList.add("weird");
+        button.textContent = "take me back to SNooZEFesT";
+      } else {
+        body.classList.remove("weird");
+        body.classList.add("normal");
+        button.textContent = "Make Things Weird!";
+      }
+    }
+  </script>
 
 </body>
 </html>
